@@ -14,6 +14,7 @@
 		5B8486D926F1898A007B1B0F /* 20210915.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8486D726F1898A007B1B0F /* 20210915.cpp */; };
 		5BC6353126E664AF007F5979 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6353026E664AF007F5979 /* main.cpp */; };
 		5BC6353926E664DC007F5979 /* 20210906.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6353726E664DC007F5979 /* 20210906.cpp */; };
+		5BFC16A427000F1D000CF248 /* 20210926.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC16A327000F1D000CF248 /* 20210926.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +43,9 @@
 		5BC6353026E664AF007F5979 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5BC6353726E664DC007F5979 /* 20210906.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 20210906.cpp; sourceTree = "<group>"; };
 		5BC6353A26E66645007F5979 /* 20210906.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 20210906.h; sourceTree = "<group>"; };
+		5BFC16A227000BD5000CF248 /* 20210926.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = 20210926.md; sourceTree = "<group>"; };
+		5BFC16A327000F1D000CF248 /* 20210926.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 20210926.cpp; sourceTree = "<group>"; };
+		5BFC16A527000F28000CF248 /* 20210926.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 20210926.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				5BC6353026E664AF007F5979 /* main.cpp */,
+				5BFC16A227000BD5000CF248 /* 20210926.md */,
+				5BFC16A327000F1D000CF248 /* 20210926.cpp */,
+				5BFC16A527000F28000CF248 /* 20210926.h */,
 				5B2AFB4226FAC64D004BE4F8 /* 20210922.md */,
 				5BC6353726E664DC007F5979 /* 20210906.cpp */,
 				5B21994F26E85289003DCB04 /* 20210908.cpp */,
@@ -149,6 +156,7 @@
 				5B21995526E8626E003DCB04 /* 20210908.h in Sources */,
 				5B2AFB4826FAC742004BE4F8 /* 20210922.cpp in Sources */,
 				5B8486D926F1898A007B1B0F /* 20210915.cpp in Sources */,
+				5BFC16A427000F1D000CF248 /* 20210926.cpp in Sources */,
 				5B21995626E8626E003DCB04 /* 20210906.h in Sources */,
 				5BC6353126E664AF007F5979 /* main.cpp in Sources */,
 				5B21995126E85289003DCB04 /* 20210908.cpp in Sources */,

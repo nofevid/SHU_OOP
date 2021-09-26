@@ -17,9 +17,8 @@ using namespace std;
 int main() {
     
     int experiment_time;
-    string quit;
-    
     start: cin >> experiment_time;
+    string quit = "0";
     
     //20210908实验内容
     if (experiment_time == 20210908){
@@ -35,7 +34,7 @@ int main() {
                 cout << "方程无解" << endl;
             }
             
-            cin >> quit;;
+            cin >> quit;
             if (quit == "quit"){
                 goto start;
             }
@@ -46,11 +45,10 @@ int main() {
     
     //20210915实验内容
     if (experiment_time == 20210915){
-        int n = 0, m(10);
+        int m(10);
         Time t0, t1(10), t2(10, 20), t3(10, 20, 30), *p = &t0;
         Time tArray[10];
         Time *tPtr = &t1;
-        Time &tRef = t0;
         tPtr = new Time;
         delete tPtr;
         tPtr = new Time [m];
@@ -78,6 +76,19 @@ int main() {
         cout << "the complex number b is " << b.ShowCmplx1() << "." << endl;
         cout << "the complex number c is " << c.ShowCmplx1() << "." << endl;
         cout << "the complex number d is " << p->ShowCmplx1() << "." << endl;
+    }
+    
+    //20210926实验内容
+    if (experiment_time == 20210926){
+        while (true){
+            
+            
+            cin >> quit;
+            if (quit == "quit"){
+                goto start;
+            }
+            
+        }
     }
     
     return 0;
