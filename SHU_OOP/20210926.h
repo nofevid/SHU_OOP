@@ -11,6 +11,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <cstring>
 
 class mystring{
 public:
@@ -28,9 +29,9 @@ public:
     }
     
     //功能函数声明
-    unsigned long mystrlen(const char *mstr);
+    unsigned long mystrlen() const;
     void upperstr();
-    
+    void ms_show() const;
     
 private:
     char *mystr;

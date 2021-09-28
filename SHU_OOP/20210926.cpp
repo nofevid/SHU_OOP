@@ -6,6 +6,8 @@
 //
 
 #include <iostream>
+#include <cstring>
+#include <string.h>
 #include "20210926.h"
 
 using namespace std;
@@ -13,6 +15,7 @@ using namespace std;
 mystring::mystring(const char *mstr){
     mystr = new char[strlen(mstr)+1];
     strcpy(mystr, mstr);
+    cout << "Constructing an object of mystring " << mstr << endl;
 }
 
 mystring::~mystring(){
@@ -26,6 +29,16 @@ mystring::mystring(const mystring &ms){
     strcpy(mystr, ms.mystr);
 }
 
-unsigned long mystring::mystrlen(const char *mstr){
-    return strlen(mstr);
+unsigned long mystring::mystrlen() const{
+    return strlen(mystr);
+}
+
+void mystring::ms_show() const{
+    cout << "\"" << mystr << "\"" << endl;
+}
+
+void mystring::upperstr(){
+    cout << "Upper \"" << mystr << "\" -> \"";
+//    strupr(mystr);
+    cout << mystr << "\"." << endl;
 }

@@ -123,7 +123,7 @@
 		5BC6352526E664AE007F5979 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					5BC6352C26E664AF007F5979 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -285,9 +285,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38LBL8L5ZS;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = /Users/nofevid/Desktop/git_program/SHU_OOP;
+				"LIBRARY_SEARCH_PATHS[arch=*]" = /Users/nofevid/Desktop/git_program/SHU_OOP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -296,6 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38LBL8L5ZS;
 				ENABLE_HARDENED_RUNTIME = YES;

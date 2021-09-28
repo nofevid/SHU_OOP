@@ -11,13 +11,14 @@
 #include "20210908.h"
 #include "20210915.h"
 #include "20210922.h"
+#include "20210926.h"
 
 using namespace std;
 
 int main() {
     
-    int experiment_time;
-    start: cin >> experiment_time;
+    start: int experiment_time = 0;
+    cin >> experiment_time;
     string quit = "0";
     
     //20210908实验内容
@@ -47,8 +48,7 @@ int main() {
     if (experiment_time == 20210915){
         int m(10);
         Time t0, t1(10), t2(10, 20), t3(10, 20, 30), *p = &t0;
-        Time tArray[10];
-        Time *tPtr = &t1;
+        Time tArray[10];        Time *tPtr = &t1;
         tPtr = new Time;
         delete tPtr;
         tPtr = new Time [m];
@@ -81,6 +81,27 @@ int main() {
     //20210926实验内容
     if (experiment_time == 20210926){
         while (true){
+            char str[10] = "Tom", *ptr = new char[10];
+            strcpy(ptr, "Jerry");
+            mystring ms1(str), ms2(ptr), ms3("Snoopy");
+            ms1.ms_show();
+            cout << ms1.mystrlen() << endl;
+            ms2.ms_show();
+            cout << ms2.mystrlen() << endl;
+            ms3.ms_show();
+            cout << ms3.mystrlen() << endl;
+            cout << "Do something..." << endl;
+            strcpy (str, "Winnie");
+            ms1.ms_show();
+            delete [] ptr;
+            ms2.ms_show();
+            ms3.upperstr();
+            ms3.ms_show();
+            mystring ms4 = ms1;
+            ms2 = ms1;
+            ms2.ms_show();
+            ms4.ms_show();
+            
             
             
             cin >> quit;
@@ -90,6 +111,8 @@ int main() {
             
         }
     }
+    
+    goto start;
     
     return 0;
 }
