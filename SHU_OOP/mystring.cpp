@@ -8,7 +8,7 @@
 #include <iostream>
 #include <cstring>
 #include <string.h>
-#include "20210926.h"
+#include "mystring.h"
 
 using namespace std;
 

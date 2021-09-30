@@ -48,8 +48,7 @@ int main() {
     if (experiment_time == 20210915){
         int m(10);
         Time t0, t1(10), t2(10, 20), t3(10, 20, 30), *p = &t0;
-        Time tArray[10];        Time *tPtr = &t1;
-        tPtr = new Time;
+        Time tArray[10];        Time *tPtr = &t1;        tPtr = new Time;
         delete tPtr;
         tPtr = new Time [m];
         delete [] tPtr;
@@ -80,35 +79,11 @@ int main() {
     
     //20210926实验内容
     if (experiment_time == 20210926){
-        while (true){
-            char str[10] = "Tom", *ptr = new char[10];
-            strcpy(ptr, "Jerry");
-            mystring ms1(str), ms2(ptr), ms3("Snoopy");
-            ms1.ms_show();
-            cout << ms1.mystrlen() << endl;
-            ms2.ms_show();
-            cout << ms2.mystrlen() << endl;
-            ms3.ms_show();
-            cout << ms3.mystrlen() << endl;
-            cout << "Do something..." << endl;
-            strcpy (str, "Winnie");
-            ms1.ms_show();
-            delete [] ptr;
-            ms2.ms_show();
-            ms3.upperstr();
-            ms3.ms_show();
-            mystring ms4 = ms1;
-            ms2 = ms1;
-            ms2.ms_show();
-            ms4.ms_show();
+        experiment_20210926();
             
-            
-            
-            cin >> quit;
-            if (quit == "quit"){
-                goto start;
-            }
-            
+        cin >> quit;
+        if (quit == "quit"){
+            goto start;
         }
     }
     

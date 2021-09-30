@@ -9,32 +9,31 @@
 #define _0210926_h
 
 #include <iostream>
-#include <iomanip>
-#include <string>
-#include <cstring>
+#include "mystring.h"
 
-class mystring{
-public:
-    //四大函数声明
-    mystring(const char *mstr = "NoString");
-    ~mystring();
-    mystring(const mystring &ms);
-    mystring & operator=(const mystring &ms){           //重载‘=’，在体内完成
-        if(&ms != this){
-            delete [] mystr;
-            mystr = new char[strlen(ms.mystr) + 1];
-            strcpy(mystr, ms.mystr);
-        }
-        return *this;
-    }
-    
-    //功能函数声明
-    unsigned long mystrlen() const;
-    void upperstr();
-    void ms_show() const;
-    
-private:
-    char *mystr;
-};
+using namespace std;
+
+void experiment_20210926(){
+    char str[10] = "Tom", *ptr = new char[10];
+    strcpy(ptr, "Jerry");
+    mystring ms1(str), ms2(ptr), ms3("Snoopy");
+    ms1.ms_show();
+    cout << ms1.mystrlen() << endl;
+    ms2.ms_show();
+    cout << ms2.mystrlen() << endl;
+    ms3.ms_show();
+    cout << ms3.mystrlen() << endl;
+    cout << "Do something..." << endl;
+    strcpy (str, "Winnie");
+    ms1.ms_show();
+    delete [] ptr;
+    ms2.ms_show();
+    ms3.upperstr();
+    ms3.ms_show();
+    mystring ms4 = ms1;
+    ms2 = ms1;
+    ms2.ms_show();
+    ms4.ms_show();
+}
 
 #endif /* _0210926_h */

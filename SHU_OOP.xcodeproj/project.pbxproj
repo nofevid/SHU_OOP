@@ -11,10 +11,14 @@
 		5B21995526E8626E003DCB04 /* 20210908.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B21995026E85289003DCB04 /* 20210908.h */; };
 		5B21995626E8626E003DCB04 /* 20210906.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6353A26E66645007F5979 /* 20210906.h */; };
 		5B2AFB4826FAC742004BE4F8 /* 20210922.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B2AFB4626FAC742004BE4F8 /* 20210922.cpp */; };
+		5B33BBDE27037ABA002BDB83 /* mystring.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC16A527000F28000CF248 /* mystring.h */; };
+		5B33BBDF27037ACB002BDB83 /* 20210926.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B33BBDA27037879002BDB83 /* 20210926.h */; };
+		5B33BBE027037ACE002BDB83 /* 20210915.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B8486D826F1898A007B1B0F /* 20210915.h */; };
+		5B33BBE127037AD0002BDB83 /* 20210922.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B2AFB4726FAC742004BE4F8 /* 20210922.h */; };
 		5B8486D926F1898A007B1B0F /* 20210915.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8486D726F1898A007B1B0F /* 20210915.cpp */; };
 		5BC6353126E664AF007F5979 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6353026E664AF007F5979 /* main.cpp */; };
 		5BC6353926E664DC007F5979 /* 20210906.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6353726E664DC007F5979 /* 20210906.cpp */; };
-		5BFC16A427000F1D000CF248 /* 20210926.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC16A327000F1D000CF248 /* 20210926.cpp */; };
+		5BFC16A427000F1D000CF248 /* mystring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC16A327000F1D000CF248 /* mystring.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +40,7 @@
 		5B2AFB4226FAC64D004BE4F8 /* 20210922.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = 20210922.md; sourceTree = "<group>"; };
 		5B2AFB4626FAC742004BE4F8 /* 20210922.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 20210922.cpp; sourceTree = "<group>"; };
 		5B2AFB4726FAC742004BE4F8 /* 20210922.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 20210922.h; sourceTree = "<group>"; };
+		5B33BBDA27037879002BDB83 /* 20210926.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 20210926.h; sourceTree = "<group>"; };
 		5B8486D626F18919007B1B0F /* 20210915.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = 20210915.md; sourceTree = "<group>"; };
 		5B8486D726F1898A007B1B0F /* 20210915.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 20210915.cpp; sourceTree = "<group>"; };
 		5B8486D826F1898A007B1B0F /* 20210915.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 20210915.h; sourceTree = "<group>"; };
@@ -44,8 +49,8 @@
 		5BC6353726E664DC007F5979 /* 20210906.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 20210906.cpp; sourceTree = "<group>"; };
 		5BC6353A26E66645007F5979 /* 20210906.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 20210906.h; sourceTree = "<group>"; };
 		5BFC16A227000BD5000CF248 /* 20210926.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = 20210926.md; sourceTree = "<group>"; };
-		5BFC16A327000F1D000CF248 /* 20210926.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 20210926.cpp; sourceTree = "<group>"; };
-		5BFC16A527000F28000CF248 /* 20210926.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 20210926.h; sourceTree = "<group>"; };
+		5BFC16A327000F1D000CF248 /* mystring.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mystring.cpp; sourceTree = "<group>"; };
+		5BFC16A527000F28000CF248 /* mystring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mystring.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +85,9 @@
 			children = (
 				5BC6353026E664AF007F5979 /* main.cpp */,
 				5BFC16A227000BD5000CF248 /* 20210926.md */,
-				5BFC16A327000F1D000CF248 /* 20210926.cpp */,
-				5BFC16A527000F28000CF248 /* 20210926.h */,
+				5BFC16A327000F1D000CF248 /* mystring.cpp */,
+				5B33BBDA27037879002BDB83 /* 20210926.h */,
+				5BFC16A527000F28000CF248 /* mystring.h */,
 				5B2AFB4226FAC64D004BE4F8 /* 20210922.md */,
 				5BC6353726E664DC007F5979 /* 20210906.cpp */,
 				5B21994F26E85289003DCB04 /* 20210908.cpp */,
@@ -153,10 +159,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B33BBE127037AD0002BDB83 /* 20210922.h in Sources */,
+				5B33BBE027037ACE002BDB83 /* 20210915.h in Sources */,
+				5B33BBDF27037ACB002BDB83 /* 20210926.h in Sources */,
+				5B33BBDE27037ABA002BDB83 /* mystring.h in Sources */,
 				5B21995526E8626E003DCB04 /* 20210908.h in Sources */,
 				5B2AFB4826FAC742004BE4F8 /* 20210922.cpp in Sources */,
 				5B8486D926F1898A007B1B0F /* 20210915.cpp in Sources */,
-				5BFC16A427000F1D000CF248 /* 20210926.cpp in Sources */,
+				5BFC16A427000F1D000CF248 /* mystring.cpp in Sources */,
 				5B21995626E8626E003DCB04 /* 20210906.h in Sources */,
 				5BC6353126E664AF007F5979 /* main.cpp in Sources */,
 				5B21995126E85289003DCB04 /* 20210908.cpp in Sources */,
