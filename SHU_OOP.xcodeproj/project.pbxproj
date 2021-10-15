@@ -64,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BC2E82E27120073002EFBA1 /* mystring */ = {
+			isa = PBXGroup;
+			children = (
+				5BFC16A527000F28000CF248 /* mystring.h */,
+				5BFC16A327000F1D000CF248 /* mystring.cpp */,
+			);
+			path = mystring;
+			sourceTree = "<group>";
+		};
 		5BC6352426E664AE007F5979 = {
 			isa = PBXGroup;
 			children = (
@@ -83,11 +92,10 @@
 		5BC6352F26E664AF007F5979 /* SHU_OOP */ = {
 			isa = PBXGroup;
 			children = (
+				5BC2E82E27120073002EFBA1 /* mystring */,
 				5BC6353026E664AF007F5979 /* main.cpp */,
 				5BFC16A227000BD5000CF248 /* 20210926.md */,
-				5BFC16A327000F1D000CF248 /* mystring.cpp */,
 				5B33BBDA27037879002BDB83 /* 20210926.h */,
-				5BFC16A527000F28000CF248 /* mystring.h */,
 				5B2AFB4226FAC64D004BE4F8 /* 20210922.md */,
 				5BC6353726E664DC007F5979 /* 20210906.cpp */,
 				5B21994F26E85289003DCB04 /* 20210908.cpp */,
