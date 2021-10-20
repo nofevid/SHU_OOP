@@ -16,6 +16,7 @@
 		5B33BBE027037ACE002BDB83 /* 20210915.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B8486D826F1898A007B1B0F /* 20210915.h */; };
 		5B33BBE127037AD0002BDB83 /* 20210922.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B2AFB4726FAC742004BE4F8 /* 20210922.h */; };
 		5B8486D926F1898A007B1B0F /* 20210915.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8486D726F1898A007B1B0F /* 20210915.cpp */; };
+		5BC2E833271C4556002EFBA1 /* Myvector.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2E832271C4353002EFBA1 /* Myvector.h */; };
 		5BC6353126E664AF007F5979 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6353026E664AF007F5979 /* main.cpp */; };
 		5BC6353926E664DC007F5979 /* 20210906.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6353726E664DC007F5979 /* 20210906.cpp */; };
 		5BFC16A427000F1D000CF248 /* mystring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC16A327000F1D000CF248 /* mystring.cpp */; };
@@ -44,6 +45,7 @@
 		5B8486D626F18919007B1B0F /* 20210915.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = 20210915.md; sourceTree = "<group>"; };
 		5B8486D726F1898A007B1B0F /* 20210915.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 20210915.cpp; sourceTree = "<group>"; };
 		5B8486D826F1898A007B1B0F /* 20210915.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 20210915.h; sourceTree = "<group>"; };
+		5BC2E832271C4353002EFBA1 /* Myvector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Myvector.h; sourceTree = "<group>"; };
 		5BC6352D26E664AF007F5979 /* SHU_OOP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SHU_OOP; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC6353026E664AF007F5979 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5BC6353726E664DC007F5979 /* 20210906.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 20210906.cpp; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 			path = mystring;
 			sourceTree = "<group>";
 		};
+		5BC2E82F271C423F002EFBA1 /* Myvector */ = {
+			isa = PBXGroup;
+			children = (
+				5BC2E832271C4353002EFBA1 /* Myvector.h */,
+			);
+			path = Myvector;
+			sourceTree = "<group>";
+		};
 		5BC6352426E664AE007F5979 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		5BC6352F26E664AF007F5979 /* SHU_OOP */ = {
 			isa = PBXGroup;
 			children = (
+				5BC2E82F271C423F002EFBA1 /* Myvector */,
 				5BC2E82E27120073002EFBA1 /* mystring */,
 				5BC6353026E664AF007F5979 /* main.cpp */,
 				5BFC16A227000BD5000CF248 /* 20210926.md */,
@@ -167,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC2E833271C4556002EFBA1 /* Myvector.h in Sources */,
 				5B33BBE127037AD0002BDB83 /* 20210922.h in Sources */,
 				5B33BBE027037ACE002BDB83 /* 20210915.h in Sources */,
 				5B33BBDF27037ACB002BDB83 /* 20210926.h in Sources */,

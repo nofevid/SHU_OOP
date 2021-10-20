@@ -14,6 +14,7 @@
 #include "20210922.h"
 //#include "20210926.h"
 #include "mystring/mystring.h"
+#include "Myvector/Myvector.h"
 
 using namespace std;
 
@@ -126,14 +127,17 @@ int main() {
     
     c = a + " " + b;
     c.mystr_show();
+    cout << c << endl;
     cout << "c.mylen = " << a.mystrlen() << endl;
     cout << "c_strlen = " << strlen("Hello World") << endl;
     b = a + b;
     b.mystr_show();
+    cout << b << endl;
     cout << "b.mylen = " << b.mystrlen() << endl;
     cout << "b_strlen = " << strlen("HelloWorld") << endl;
     a = a + " ";
     a.mystr_show();
+    cout << a << endl;
     cout << "a.mylen = " << a.mystrlen() << endl;
     cout << "a_strlen = " << strlen("Hello ") << endl;
     cout << endl;
@@ -142,29 +146,65 @@ int main() {
     b = "World";
     mystring d("abcdefg");
     d.mystr_show();
+    cout << d << endl;
     d.mystrcpy(d, c);
-    cout << d.mystrcpy(d, c) << endl;           //mystrcpy有问题，待修
+    cout << d.mystrcpy(d, c) << endl;           //mystrcpy有问题，待修，已修
     d.mystr_show();
+    cout << d << endl;
     d=c;
     d.mystr_show();
     c.mystr_show();
+    cout << d << '\n' << c << endl;
     cout << "d.mylen = " << d.mystrlen() << endl;
     cout << "d_strlen = " << strlen("Hello World") << endl;
     cout << endl;
     
     cout << a.mystrlen(a) << " " << b.mystrlen(b) << " " << c.mystrlen(c) << " " << d.mystrlen(d) << endl;
     cout << a.mystrlen() << " " << b.mystrlen() << " " << c.mystrlen() << " " << d.mystrlen() << endl;
-    cout << a.mystrlen(d) << " " << b.mystrlen(c) << " " << c.mystrlen(b) << " " << d.mystrlen(a) << endl;              //mystrlen有问题，待修（已修）（应该）
+    cout << a.mystrlen(d) << " " << b.mystrlen(c) << " " << c.mystrlen(b) << " " << d.mystrlen(a) << endl;                                  //mystrlen有问题，待修（已修）（应该）
     cout << endl;
     
     string str_a("Hello World");
     string str_b(str_a, 5, 2);
     mystring e(c, 6, 8);
-//    mystring f(c, 8);
+    mystring f(c, 0, 8);                        //len=8||9||10，结果有误，待修
+    mystring g(7, 'b');
+    mystring h(c, 2, 5);
+    mystring i(c, 6);                           //重载错误，待修,已修
     cout << str_b << endl;
     e.mystr_show();
-//    f.mystr_show();
+    f.mystr_show();
+    g.mystr_show();
+    h.mystr_show();
+    i.mystr_show();
+    cout << e << '\n' << f << '\n' << g << '\n' << h << '\n' << i << '\n' << endl;
     cout << endl;
+    
+//    mystring j;
+//    cin >> j;
+//    cout << j << endl;
+    
+    
+    
+//    myvector<string> aa(5,"0");
+//    myvector<double> ba;
+//    myvector<string>ca(aa);
+//    myvector<string>da(5,"\0");
+////    cout << da.back();
+////    cout << da.begin();
+//    cin >> da[3] >> da[4];
+//    aa.resize(3, "7");
+//    aa.push_back("1");
+//    aa.pop_back();
+////    cout << aa[22]<<endl;
+//    aa.push_back("2");
+//    cout << aa << endl;
+//    cout << aa[3]<<endl;
+//    cout << aa.begin()<<endl;
+//    cout<< aa.back() << endl;
+//    cout << ba << endl;
+//    cout << ca << endl;
+//    cout << da << endl;
     
     return 0;
 }

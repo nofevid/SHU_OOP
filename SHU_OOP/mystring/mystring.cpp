@@ -20,22 +20,35 @@ mystring::mystring(const char *mstr){
     //cout << "Constructing an object of mystring " << mstr << "." << endl;
 }
 
+//mystring::mystring (const mystring& mstr, size_t pos, size_t len){
+//    char temp[len];
+//    if ((pos+len-1)<mstr.mylen){
+//        for(int i = 0; i < len; i++){
+//            temp[i] = mstr.mydata[pos+i];
+//        }
+//        mylen = len;
+//    }else{
+//        mylen = mstr.mylen - pos;
+//        for(int i = 0; i < mylen; i++){
+//            temp[i] = mstr.mydata[pos+i];
+//        }
+//    }
+//    mydata = new char[mylen+1];
+//    for(int i = 0; i < mylen; i++){
+//        mydata[i] = temp[i];
+//    }
+////    mydata = mydata + temp;
+//}
+
 mystring::mystring (const mystring& mstr, size_t pos, size_t len){
-    char temp[len];
     if ((pos+len-1)<mstr.mylen){
-        for(int i = 0; i < len; i++){
-            temp[i] = mstr.mydata[pos+i];
-        }
         mylen = len;
     }else{
         mylen = mstr.mylen - pos;
-        for(int i = 0; i < mylen; i++){
-            temp[i] = mstr.mydata[pos+i];
-        }
     }
     mydata = new char[mylen+1];
     for(int i = 0; i < mylen; i++){
-        mydata[i] = temp[i];
+        mydata[i] = mstr.mydata[pos+i];
     }
 }
 
@@ -48,7 +61,11 @@ mystring::mystring(const mystring& mstr, size_t n){
 }
 
 mystring::mystring (size_t n, char c){
-    
+    mylen = n;
+    mydata = new char[n+1];
+    for(int i = 0; i < mylen; i++){
+        mydata[i] = c;
+    }
 }
 
 //析构函数实现
@@ -65,8 +82,84 @@ mystring::mystring(const mystring &ms){
     strcpy(mydata, ms.mydata);
 }
 
+//重载'='实现
+mystring& mystring::operator=(const mystring &mstr){
+    if(&mstr != this){
+        delete [] mydata;
+        mydata = new char[mstr.mylen + 1];
+        strcpy(mydata, mstr.mydata);
+        mylen = mstr.mylen;
+    }
+    return *this;
+}
 
-//mystrlen实现，有问题，待修
+//重载'+'实现（非数学加，不可交换）
+mystring mystring::operator+(const mystring &mstr){
+    mystring temp;
+    temp.mydata = new char[mstr.mylen + this->mylen+1];
+    temp.mylen = mylen + mstr.mylen;
+    strcpy(temp.mydata, mydata);
+    strcat(temp.mydata, mstr.mydata);
+    return temp;
+}
+
+//重载'+='实现
+mystring& mystring::operator+=(const mystring& mstr){
+    mylen += mstr.mylen;
+    char *newData = new char[mylen + 1];
+    strcpy(newData, mydata);
+    strcat(newData, mstr.mydata);
+    delete [] mydata;
+    mydata = newData;
+    return *this;
+}
+
+//重载'=='实现
+inline bool mystring::operator==(const mystring &mstr) const{
+    if (mylen != mstr.mylen){
+        return false;
+    }
+    return strcmp(mydata, mstr.mydata)==0;
+}
+
+//重载'!='实现
+inline bool mystring::operator!=(const mystring &mstr) const{
+    if (mylen != mstr.mylen){
+        return true;
+    }
+    return strcmp(mydata, mstr.mydata)!=0;
+}
+
+//重载'< '实现
+inline bool mystring::operator<(const mystring &mstr) const{
+    return strcmp(mydata, mstr.mydata)<0;
+}
+
+//重载'> '实现
+inline bool mystring::operator>(const mystring &mstr) const{
+    return strcmp(mydata, mstr.mydata)>0;
+}
+
+//重载'<='实现
+inline bool mystring::operator<=(const mystring &mstr) const{
+    return strcmp(mydata, mstr.mydata)<=0;
+}
+
+//重载'>='实现
+inline bool mystring::operator>=(const mystring &mstr) const{
+    return strcmp(mydata, mstr.mydata)>=0;
+}
+
+//重载'[]'实现
+inline char& mystring::operator[](int n) const{
+    if (n >= mylen){
+        return mydata[mylen-1];
+    }else{
+        return mydata[n];
+    }
+}
+
+//mystrlen实现，有问题，待修，基本修完
 unsigned long mystring::mystrlen(const char *mstr) const{
     return strlen(mstr);
 }
