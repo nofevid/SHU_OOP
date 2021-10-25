@@ -17,6 +17,7 @@ mystring::mystring(const char* mstr){
     mydata = new char[mystrlen(mstr)+1];
     strcpy(mydata, mstr);
     mylen = mystrlen(mydata);
+    mydata[mylen]='\0';
     //cout << "Constructing an object of mystring " << mstr << "." << endl;
 }
 
@@ -50,6 +51,7 @@ mystring::mystring (const mystring& mstr, size_t pos, size_t len){
     for(size_t i = 0; i < mylen; i++){
         mydata[i] = mstr.mydata[pos+i];
     }
+    mydata[mylen]='\0';
 }
 
 mystring::mystring(const mystring& mstr, size_t n){
@@ -58,6 +60,7 @@ mystring::mystring(const mystring& mstr, size_t n){
     for(size_t i = 0; i < mylen; i++){
         mydata[i] = mstr.mydata[i];
     }
+    mydata[mylen]='\0';
 }
 
 mystring::mystring (size_t n, char c){
@@ -66,6 +69,7 @@ mystring::mystring (size_t n, char c){
     for(size_t i = 0; i < mylen; i++){
         mydata[i] = c;
     }
+    mydata[mylen]='\0';
 }
 
 //析构函数实现
@@ -188,6 +192,8 @@ mystring& mystring::myinsert(size_t pos, const char* s){
     }
     delete [] mydata;
     mydata = p;
+    mylen = mylen + strlen(s);
+    mydata[mylen]='\0';
     return *this;
 }
 

@@ -58,11 +58,11 @@ public:
     
     //重载'>>'声明，实现
     friend istream& operator>>(istream& in, mystring& mstr){
-        char tem[1000];  //简单的申请一块内存
-        in >> tem;
-        mstr.mylen = strlen(tem);
+        char* temp=new char[1000];  //简单的申请一块内存
+        in >> temp;
+        mstr.mylen = strlen(temp);
         mstr.mydata = new char[mstr.mylen + 1];
-        strcpy(mstr.mydata, tem);
+        strcpy(mstr.mydata, temp);
         return in;
     }
     
