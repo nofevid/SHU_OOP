@@ -27,37 +27,37 @@ public:
     mystring(const mystring& mstr);                     //拷贝函数
    
     //重载'='声明
-    mystring& operator=(const mystring &mstr);
+    mystring& operator=(const mystring& mstr);
     
     //重载'+'声明
-    mystring operator+(const mystring &mstr);
+    mystring operator+(const mystring& mstr);
     
     //重载'+='声明
     mystring& operator+=(const mystring& mstr);
     
     //重载'=='声明
-    inline bool operator==(const mystring &mstr) const;
+    inline bool operator==(const mystring& mstr) const;
     
     //重载'!='声明
-    inline bool operator!=(const mystring &mstr) const;
+    inline bool operator!=(const mystring& mstr) const;
     
     //重载'< '声明
-    inline bool operator<(const mystring &mstr) const;
+    inline bool operator<(const mystring& mstr) const;
     
     //重载'> '声明
-    inline bool operator>(const mystring &mstr) const;
+    inline bool operator>(const mystring& mstr) const;
     
     //重载'<='声明
-    inline bool operator<=(const mystring &mstr) const;
+    inline bool operator<=(const mystring& mstr) const;
     
     //重载'>='声明
-    inline bool operator>=(const mystring &mstr) const;
+    inline bool operator>=(const mystring& mstr) const;
     
     //重载'[]'声明
-    inline char& operator[](int n) const;
+    inline char& operator[](size_t n) const;
     
     //重载'>>'声明，实现
-    friend istream& operator>>(istream &in, mystring &mstr){
+    friend istream& operator>>(istream& in, mystring& mstr){
         char tem[1000];  //简单的申请一块内存
         in >> tem;
         mstr.mylen = strlen(tem);
@@ -67,20 +67,23 @@ public:
     }
     
     //重载'<<'声明，实现
-    friend ostream& operator<<(ostream &out, mystring &mstr){
+    friend ostream& operator<<(ostream& out, mystring& mstr){
         out << mstr.mydata;
         return out;
     }
     
     //功能函数声明
-    unsigned long mystrlen(const char *mstr) const;
-    unsigned long mystrlen(const mystring &mstr) const;
+    unsigned long mystrlen(const char* mstr) const;
+    unsigned long mystrlen(const mystring& mstr) const;
     unsigned long mystrlen();
-    void upperstr();
-    void mystr_show() const;
-    char c_mystr() const;
-    char *mystrcpy(char *mstr_des, const char *mstr_ori);
-    char *mystrcpy(mystring mstr_des, mystring mstr_ori);
+    void upperstr();            //摊牌了，不想写了
+    void mystr_show() const;    //cin已重载，可不用
+    void myswap(mystring& mstr);
+    size_t myfind(const mystring &mstr) const;
+    char* myc_str() const;
+    mystring& mystrcpy(const char* mstr_ori);
+    mystring& mystrcpy(mystring& mstr_ori);
+    mystring& myinsert(size_t pos, const char* s);
     
 private:
     char *mydata;

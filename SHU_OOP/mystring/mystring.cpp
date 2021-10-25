@@ -13,9 +13,9 @@
 using namespace std;
 
 //构造函数实现
-mystring::mystring(const char *mstr){
+mystring::mystring(const char* mstr){
     mydata = new char[mystrlen(mstr)+1];
-    mystrcpy(mydata, mstr);
+    strcpy(mydata, mstr);
     mylen = mystrlen(mydata);
     //cout << "Constructing an object of mystring " << mstr << "." << endl;
 }
@@ -23,18 +23,18 @@ mystring::mystring(const char *mstr){
 //mystring::mystring (const mystring& mstr, size_t pos, size_t len){
 //    char temp[len];
 //    if ((pos+len-1)<mstr.mylen){
-//        for(int i = 0; i < len; i++){
+//        for(size_t i = 0; i < len; i++){
 //            temp[i] = mstr.mydata[pos+i];
 //        }
 //        mylen = len;
 //    }else{
 //        mylen = mstr.mylen - pos;
-//        for(int i = 0; i < mylen; i++){
+//        for(size_t i = 0; i < mylen; i++){
 //            temp[i] = mstr.mydata[pos+i];
 //        }
 //    }
 //    mydata = new char[mylen+1];
-//    for(int i = 0; i < mylen; i++){
+//    for(size_t i = 0; i < mylen; i++){
 //        mydata[i] = temp[i];
 //    }
 ////    mydata = mydata + temp;
@@ -47,7 +47,7 @@ mystring::mystring (const mystring& mstr, size_t pos, size_t len){
         mylen = mstr.mylen - pos;
     }
     mydata = new char[mylen+1];
-    for(int i = 0; i < mylen; i++){
+    for(size_t i = 0; i < mylen; i++){
         mydata[i] = mstr.mydata[pos+i];
     }
 }
@@ -55,7 +55,7 @@ mystring::mystring (const mystring& mstr, size_t pos, size_t len){
 mystring::mystring(const mystring& mstr, size_t n){
     mydata = new char[n+1];
     mylen = n;
-    for(int i = 0; i < mylen; i++){
+    for(size_t i = 0; i < mylen; i++){
         mydata[i] = mstr.mydata[i];
     }
 }
@@ -63,7 +63,7 @@ mystring::mystring(const mystring& mstr, size_t n){
 mystring::mystring (size_t n, char c){
     mylen = n;
     mydata = new char[n+1];
-    for(int i = 0; i < mylen; i++){
+    for(size_t i = 0; i < mylen; i++){
         mydata[i] = c;
     }
 }
@@ -77,13 +77,13 @@ mystring::~mystring(){
     }
 }
 
-mystring::mystring(const mystring &ms){
+mystring::mystring(const mystring& ms){
     mydata = new char[strlen(ms.mydata) + 1];
     strcpy(mydata, ms.mydata);
 }
 
 //重载'='实现
-mystring& mystring::operator=(const mystring &mstr){
+mystring& mystring::operator=(const mystring& mstr){
     if(&mstr != this){
         delete [] mydata;
         mydata = new char[mstr.mylen + 1];
@@ -94,7 +94,7 @@ mystring& mystring::operator=(const mystring &mstr){
 }
 
 //重载'+'实现（非数学加，不可交换）
-mystring mystring::operator+(const mystring &mstr){
+mystring mystring::operator+(const mystring& mstr){
     mystring temp;
     temp.mydata = new char[mstr.mylen + this->mylen+1];
     temp.mylen = mylen + mstr.mylen;
@@ -115,7 +115,7 @@ mystring& mystring::operator+=(const mystring& mstr){
 }
 
 //重载'=='实现
-inline bool mystring::operator==(const mystring &mstr) const{
+inline bool mystring::operator==(const mystring& mstr) const{
     if (mylen != mstr.mylen){
         return false;
     }
@@ -123,7 +123,7 @@ inline bool mystring::operator==(const mystring &mstr) const{
 }
 
 //重载'!='实现
-inline bool mystring::operator!=(const mystring &mstr) const{
+inline bool mystring::operator!=(const mystring& mstr) const{
     if (mylen != mstr.mylen){
         return true;
     }
@@ -131,27 +131,39 @@ inline bool mystring::operator!=(const mystring &mstr) const{
 }
 
 //重载'< '实现
-inline bool mystring::operator<(const mystring &mstr) const{
+inline bool mystring::operator<(const mystring& mstr) const{
+    if(this->mylen<mstr.mylen){
+        return true;
+    }
     return strcmp(mydata, mstr.mydata)<0;
 }
 
 //重载'> '实现
-inline bool mystring::operator>(const mystring &mstr) const{
+inline bool mystring::operator>(const mystring& mstr) const{
+    if(this->mylen>mstr.mylen){
+        return true;
+    }
     return strcmp(mydata, mstr.mydata)>0;
 }
 
 //重载'<='实现
-inline bool mystring::operator<=(const mystring &mstr) const{
+inline bool mystring::operator<=(const mystring& mstr) const{
+    if(this->mylen<=mstr.mylen){
+        return true;
+    }
     return strcmp(mydata, mstr.mydata)<=0;
 }
 
 //重载'>='实现
-inline bool mystring::operator>=(const mystring &mstr) const{
+inline bool mystring::operator>=(const mystring& mstr) const{
+    if(this->mylen>=mstr.mylen){
+        return true;
+    }
     return strcmp(mydata, mstr.mydata)>=0;
 }
 
 //重载'[]'实现
-inline char& mystring::operator[](int n) const{
+inline char& mystring::operator[](size_t n) const{
     if (n >= mylen){
         return mydata[mylen-1];
     }else{
@@ -159,12 +171,32 @@ inline char& mystring::operator[](int n) const{
     }
 }
 
+//myinsert实现
+mystring& mystring::myinsert(size_t pos, const char* s){
+    if(pos > mylen){
+        pos = mylen;
+    }
+    char *p = new char[mylen + strlen(s) + 1];
+    for (size_t i=0; i < mylen+strlen(s); i++){
+        if (i<pos){
+            p[i]=mydata[i];
+        }else if(i<pos+strlen(s) && i>=pos){
+            p[i]=s[i-pos];
+        }else if(i>=pos+strlen(s)){
+            p[i]=mydata[i-strlen(s)];
+        }
+    }
+    delete [] mydata;
+    mydata = p;
+    return *this;
+}
+
 //mystrlen实现，有问题，待修，基本修完
-unsigned long mystring::mystrlen(const char *mstr) const{
+unsigned long mystring::mystrlen(const char* mstr) const{
     return strlen(mstr);
 }
 
-unsigned long mystring::mystrlen(const mystring &mstr) const{
+unsigned long mystring::mystrlen(const mystring& mstr) const{
     return strlen(mstr.mydata);
 }
 
@@ -177,6 +209,24 @@ void mystring::mystr_show() const{
     cout << "\"" << mydata << "\"" << endl;
 }
 
+//myfind实现
+size_t mystring::myfind(const mystring& mstr) const{
+    size_t pos, flag = 1;
+    for(pos=0; pos<mylen; pos++){
+        flag = 1;
+        for(size_t i=0; i<mstr.mylen; i++){
+            if(mydata[pos+i]!=mstr.mydata[i]){
+                flag = 0;
+                break;
+            }
+        }
+        if(flag==1){
+            return pos;
+        }
+    }
+    return -1;
+}
+
 //upperstr实现，待修
 void mystring::upperstr(){
     cout << "Upper \"" << mydata << "\" -> \"";
@@ -184,11 +234,31 @@ void mystring::upperstr(){
     cout << mydata << "\"." << endl;
 }
 
-//mystrcpy实现，待修
-char *mystring::mystrcpy(char *mstr_des, const char *mstr_ori){
-    return(strcpy(mstr_des, mstr_ori));
+//mystrcpy实现，待修，修完了
+mystring& mystring::mystrcpy(const char* mstr_ori){
+    char* p = new char[strlen(mstr_ori)];
+    strcpy(p, mstr_ori);
+    delete [] mydata;
+    mydata = p;
+    return *this;
 }
 
-char *mystring::mystrcpy(mystring mstr_des, mystring mstr_ori){
-    return(strcpy(mstr_des.mydata, mstr_ori.mydata));
+mystring& mystring::mystrcpy(mystring& mstr_ori){
+    char* p = new char[strlen(mstr_ori.mydata)];
+    strcpy(p, mstr_ori.mydata);
+    delete [] mydata;
+    mydata = p;
+    return *this;
+}
+
+//myc_str实现
+char* mystring::myc_str() const{
+    return mydata;
+}
+
+//myswap实现
+void mystring::myswap(mystring& mstr){
+    char *temp = mstr.mydata;
+    mstr.mydata = mydata;
+    mydata = temp;
 }

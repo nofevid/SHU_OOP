@@ -147,8 +147,7 @@ int main() {
     mystring d("abcdefg");
     d.mystr_show();
     cout << d << endl;
-    d.mystrcpy(d, c);
-    cout << d.mystrcpy(d, c) << endl;           //mystrcpy有问题，待修，已修
+    d.mystrcpy(c);
     d.mystr_show();
     cout << d << endl;
     d=c;
@@ -184,27 +183,17 @@ int main() {
 //    cin >> j;
 //    cout << j << endl;
     
+    mystring k = "Hello C++.";
+    k.myinsert(6, "World, I'm writing ");
+    cout << k << endl;
+    cout << k.myfind("World") << endl;
+    cout << k.myc_str() << endl;
+    cout << endl;
     
+    cout << a << " \\ " << b << endl;
+    a.myswap(b);
+    cout << a << " \\ " << b << endl;
     
-//    myvector<string> aa(5,"0");
-//    myvector<double> ba;
-//    myvector<string>ca(aa);
-//    myvector<string>da(5,"\0");
-////    cout << da.back();
-////    cout << da.begin();
-//    cin >> da[3] >> da[4];
-//    aa.resize(3, "7");
-//    aa.push_back("1");
-//    aa.pop_back();
-////    cout << aa[22]<<endl;
-//    aa.push_back("2");
-//    cout << aa << endl;
-//    cout << aa[3]<<endl;
-//    cout << aa.begin()<<endl;
-//    cout<< aa.back() << endl;
-//    cout << ba << endl;
-//    cout << ca << endl;
-//    cout << da << endl;
     
     return 0;
 }
