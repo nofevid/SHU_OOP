@@ -17,7 +17,6 @@
 		5B33BBE127037AD0002BDB83 /* 20210922.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B2AFB4726FAC742004BE4F8 /* 20210922.h */; };
 		5B8486D926F1898A007B1B0F /* 20210915.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8486D726F1898A007B1B0F /* 20210915.cpp */; };
 		5BC2E833271C4556002EFBA1 /* Myvector.h in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2E832271C4353002EFBA1 /* Myvector.h */; };
-		5BC2E8362728FC2A002EFBA1 /* rsa_mystring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2E8352728FC2A002EFBA1 /* rsa_mystring.cpp */; };
 		5BC6353126E664AF007F5979 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6353026E664AF007F5979 /* main.cpp */; };
 		5BC6353926E664DC007F5979 /* 20210906.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6353726E664DC007F5979 /* 20210906.cpp */; };
 		5BFC16A427000F1D000CF248 /* mystring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC16A327000F1D000CF248 /* mystring.cpp */; };
@@ -196,7 +195,6 @@
 				5B33BBE027037ACE002BDB83 /* 20210915.h in Sources */,
 				5B33BBDF27037ACB002BDB83 /* 20210926.h in Sources */,
 				5B33BBDE27037ABA002BDB83 /* mystring.h in Sources */,
-				5BC2E8362728FC2A002EFBA1 /* rsa_mystring.cpp in Sources */,
 				5B21995526E8626E003DCB04 /* 20210908.h in Sources */,
 				5B2AFB4826FAC742004BE4F8 /* 20210922.cpp in Sources */,
 				5B8486D926F1898A007B1B0F /* 20210915.cpp in Sources */,

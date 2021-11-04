@@ -117,27 +117,30 @@ int main() {
     mystring a("Hello");
     mystring b="World";
     mystring c;
+    cout << "a = \"" << a << "\"" << endl;
     cout << "a.mylen = " << a.mystrlen() << endl;
     cout << "a_strlen = " << strlen("Hello") << endl;
+    cout << "b = \"" << b << "\"" << endl;
     cout << "b.mylen = " << b.mystrlen() << endl;
     cout << "b_strlen = " << strlen("World") << endl;
+    cout << "c = \"" << c << "\"" << endl;
     cout << "c.mylen = " << c.mystrlen() << endl;
     cout << "c_strlen = " << strlen("") << endl;
     cout << endl;
     
     c = a + " " + b;
     c.mystr_show();
-    cout << c << endl;
+    cout << "c = a + \" \" + b =\"" << c << "\"" << endl;
     cout << "c.mylen = " << a.mystrlen() << endl;
     cout << "c_strlen = " << strlen("Hello World") << endl;
     b = a + b;
     b.mystr_show();
-    cout << b << endl;
+    cout << "b = a + b = \"" << b << "\"" << endl;
     cout << "b.mylen = " << b.mystrlen() << endl;
     cout << "b_strlen = " << strlen("HelloWorld") << endl;
     a = a + " ";
     a.mystr_show();
-    cout << a << endl;
+    cout << "a = a + \" \" = \"" << a << "\"" << endl;
     cout << "a.mylen = " << a.mystrlen() << endl;
     cout << "a_strlen = " << strlen("Hello ") << endl;
     cout << endl;
@@ -146,14 +149,14 @@ int main() {
     b = "World";
     mystring d("abcdefg");
     d.mystr_show();
-    cout << d << endl;
+    cout << "d = \"" << d << "\"" << endl;
     d.mystrcpy(c);
     d.mystr_show();
-    cout << d << endl;
+    cout << "mystrcpy(c), d = \"" << d << "\"" << endl;
     d=c;
     d.mystr_show();
     c.mystr_show();
-    cout << d << '\n' << c << endl;
+    cout << "d = c, d = \"" << d << "\", c= \"" << c << "\"" << endl;
     cout << "d.mylen = " << d.mystrlen() << endl;
     cout << "d_strlen = " << strlen("Hello World") << endl;
     cout << endl;
@@ -163,37 +166,50 @@ int main() {
     cout << a.mystrlen(d) << " " << b.mystrlen(c) << " " << c.mystrlen(b) << " " << d.mystrlen(a) << endl;                                  //mystrlen有问题，待修（已修）（应该）
     cout << endl;
     
-    string str_a("Hello World");
-    string str_b(str_a, 5, 2);
-    mystring e(c, 6, 8);
-    mystring f(c, 0, 8);                        //len=8||9||10，结果有误，待修
-    mystring g(7, 'b');
-    mystring h(c, 2, 5);
-    mystring i(c, 6);                           //重载错误，待修,已修
-    cout << str_b << endl;
-    e.mystr_show();
-    f.mystr_show();
-    g.mystr_show();
-    h.mystr_show();
-    i.mystr_show();
-    cout << e << '\n' << f << '\n' << g << '\n' << h << '\n' << i << '\n' << endl;
-    cout << endl;
+//    string str_a("Hello World");
+//    string str_b(str_a, 5, 2);
+//    mystring e(c, 6, 8);
+//    mystring f(c, 0, 8);                        //len=8||9||10，结果有误，待修
+//    mystring g(7, 'b');
+//    mystring h(c, 2, 5);
+//    mystring i(c, 6);                           //重载错误，待修,已修
+//    cout << str_b << endl;
+//    e.mystr_show();
+//    f.mystr_show();
+//    g.mystr_show();
+//    h.mystr_show();
+//    i.mystr_show();
+//    cout << e << '\n' << f << '\n' << g << '\n' << h << '\n' << i << '\n' << endl;
+//    cout << endl;
     
-//    mystring j;
-//    cin >> j;
-//    cout << j << endl;
+    mystring j;
+    cin >> j;
+    cout << "input mystring j = \"" << j << "\"" << endl;
+    cout << endl;
     
     mystring k = "Hello C++.";
     k.myinsert(6, "World, I'm writing ");
-    cout << k << endl;
+    cout << "insert mystring \"World, I'm writing \" to mystring k = \"Hello C++.\", get j = \"" << j << "\"" << endl;
     cout << k.myfind("World") << endl;
-    cout << k.myc_str() << endl;
+    cout << "convert k to c_str, get \"" << k.myc_str() << "\"" << endl;
+    k.myinsert(29, "I've written lots of bugs.");
+    cout << k << endl;
     cout << endl;
     
     cout << a << " \\ " << b << endl;
     a.myswap(b);
     cout << a << " \\ " << b << endl;
+    cout << endl;
     
+    mystring l("abcdefghijklmn");
+    l.myupper(l);
+    cout << l << endl;
+    l="abcdefghijklmn";
+    l.myupper(l, 1);
+    cout << l << endl;
+    l[3]='D';
+    cout << l << endl;
+    cout << endl;
     
     return 0;
 }

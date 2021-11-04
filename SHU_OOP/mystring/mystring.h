@@ -54,11 +54,11 @@ public:
     inline bool operator>=(const mystring& mstr) const;
     
     //重载'[]'声明
-    inline char& operator[](size_t n) const;
+    char& operator[](size_t n);
     
     //重载'>>'声明，实现
     friend istream& operator>>(istream& in, mystring& mstr){
-        char* temp=new char[1000];  //简单的申请一块内存
+        char* temp=new char[mstr.mystrlen()+1];  //简单的申请一块内存
         in >> temp;
         mstr.mylen = strlen(temp);
         mstr.mydata = new char[mstr.mylen + 1];
@@ -76,7 +76,6 @@ public:
     unsigned long mystrlen(const char* mstr) const;
     unsigned long mystrlen(const mystring& mstr) const;
     unsigned long mystrlen();
-    void upperstr();            //摊牌了，不想写了
     void mystr_show() const;    //cin已重载，可不用
     void myswap(mystring& mstr);
     size_t myfind(const mystring &mstr) const;
@@ -84,6 +83,8 @@ public:
     mystring& mystrcpy(const char* mstr_ori);
     mystring& mystrcpy(mystring& mstr_ori);
     mystring& myinsert(size_t pos, const char* s);
+    mystring& myupper(mystring& mstr);
+    mystring& myupper(mystring& mstr, size_t pos);
     
 private:
     char *mydata;

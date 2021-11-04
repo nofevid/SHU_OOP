@@ -45,7 +45,8 @@ mystring::mystring (const mystring& mstr, size_t pos, size_t len){
     if ((pos+len-1)<mstr.mylen){
         mylen = len;
     }else{
-        mylen = mstr.mylen - pos;
+//        mylen = mstr.mylen - pos;
+        throw "invalid mystring position";
     }
     mydata = new char[mylen+1];
     for(size_t i = 0; i < mylen; i++){
@@ -55,8 +56,12 @@ mystring::mystring (const mystring& mstr, size_t pos, size_t len){
 }
 
 mystring::mystring(const mystring& mstr, size_t n){
-    mydata = new char[n+1];
-    mylen = n;
+    if (n<=mstr.mylen){
+        mylen = n;
+    }else{
+        mylen = mstr.mylen;
+    }
+    mydata = new char[mylen+1];
     for(size_t i = 0; i < mylen; i++){
         mydata[i] = mstr.mydata[i];
     }
@@ -167,9 +172,10 @@ inline bool mystring::operator>=(const mystring& mstr) const{
 }
 
 //重载'[]'实现
-inline char& mystring::operator[](size_t n) const{
+char& mystring::operator[](size_t n){
     if (n >= mylen){
-        return mydata[mylen-1];
+//        return mydata[mylen-1];
+        throw "invalid mystring position";
     }else{
         return mydata[n];
     }
@@ -178,7 +184,8 @@ inline char& mystring::operator[](size_t n) const{
 //myinsert实现
 mystring& mystring::myinsert(size_t pos, const char* s){
     if(pos > mylen){
-        pos = mylen;
+//        pos = mylen;
+        throw "invalid string position";
     }
     char *p = new char[mylen + strlen(s) + 1];
     for (size_t i=0; i < mylen+strlen(s); i++){
@@ -233,13 +240,6 @@ size_t mystring::myfind(const mystring& mstr) const{
     return -1;
 }
 
-//upperstr实现，待修
-void mystring::upperstr(){
-    cout << "Upper \"" << mydata << "\" -> \"";
-    //strupr(mystr);
-    cout << mydata << "\"." << endl;
-}
-
 //mystrcpy实现，待修，修完了
 mystring& mystring::mystrcpy(const char* mstr_ori){
     char* p = new char[strlen(mstr_ori)];
@@ -267,4 +267,39 @@ void mystring::myswap(mystring& mstr){
     char *temp = mstr.mydata;
     mstr.mydata = mydata;
     mydata = temp;
+}
+
+//myupper实现
+mystring& mystring::myupper(mystring& mstr){
+    char* p = new char[strlen(mstr.mydata)];
+    strcpy(p, mstr.mydata);
+    for(size_t i=0; i<mstr.mylen; i++){
+        if(p[i]>='a'&&p[i]<='z'){
+            p[i]-=32;
+        }
+        else{
+            throw "invalid mystring value";
+        }
+    }
+    delete [] mydata;
+    mydata = p;
+    return *this;
+}
+
+mystring& mystring::myupper(mystring& mstr, size_t pos){
+    char* p = new char[strlen(mstr.mydata)];
+    strcpy(p, mstr.mydata);
+    if(pos<mstr.mylen){
+        if(p[pos]>='a'&&p[pos]<='z'){
+            p[pos]-=32;
+        }
+        else{
+            throw "invalid mystring value";
+        }
+    }else{
+        throw "invalid mystring position";
+    }
+    delete [] mydata;
+    mydata = p;
+    return *this;
 }
