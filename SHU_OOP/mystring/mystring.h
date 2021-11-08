@@ -19,9 +19,9 @@ class mystring{
 public:
     //四大函数声明
     mystring(const char* mstr = "");                    //构造函数
-    mystring (const mystring& mstr, size_t pos, size_t len);
-    mystring (const mystring& mstr, size_t n);
-    mystring (size_t n, char c);
+    mystring(const mystring& mstr, size_t pos, size_t len)throw(string);
+    mystring(const mystring& mstr, size_t n);
+    mystring(size_t n, char c);
    
     ~mystring();                                        //析构函数
     mystring(const mystring& mstr);                     //拷贝函数
@@ -36,25 +36,25 @@ public:
     mystring& operator+=(const mystring& mstr);
     
     //重载'=='声明
-    inline bool operator==(const mystring& mstr) const;
+    bool operator==(const mystring& mstr) const;
     
     //重载'!='声明
-    inline bool operator!=(const mystring& mstr) const;
+    bool operator!=(const mystring& mstr) const;
     
     //重载'< '声明
-    inline bool operator<(const mystring& mstr) const;
+    bool operator<(const mystring& mstr) const;
     
     //重载'> '声明
-    inline bool operator>(const mystring& mstr) const;
+    bool operator>(const mystring& mstr) const;
     
     //重载'<='声明
-    inline bool operator<=(const mystring& mstr) const;
+    bool operator<=(const mystring& mstr) const;
     
     //重载'>='声明
-    inline bool operator>=(const mystring& mstr) const;
+    bool operator>=(const mystring& mstr) const;
     
     //重载'[]'声明
-    char& operator[](size_t n);
+    char& operator[](size_t n)throw(string);
     
     //重载'>>'声明，实现
     friend istream& operator>>(istream& in, mystring& mstr){
@@ -63,6 +63,7 @@ public:
         mstr.mylen = strlen(temp);
         mstr.mydata = new char[mstr.mylen + 1];
         strcpy(mstr.mydata, temp);
+        mstr.mydata[mstr.mylen] = '\0';
         return in;
     }
     
@@ -82,9 +83,9 @@ public:
     char* myc_str() const;
     mystring& mystrcpy(const char* mstr_ori);
     mystring& mystrcpy(mystring& mstr_ori);
-    mystring& myinsert(size_t pos, const char* s);
-    mystring& myupper(mystring& mstr);
-    mystring& myupper(mystring& mstr, size_t pos);
+    mystring& myinsert(size_t pos, const char* s)throw(string);
+    mystring& myupper(mystring& mstr)throw(string);
+    mystring& myupper(mystring& mstr, size_t pos)throw(string);
     
 private:
     char *mydata;

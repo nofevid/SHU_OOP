@@ -38,15 +38,14 @@ mystring::mystring(const char* mstr){
 //    for(size_t i = 0; i < mylen; i++){
 //        mydata[i] = temp[i];
 //    }
-////    mydata = mydata + temp;
 //}
 
-mystring::mystring (const mystring& mstr, size_t pos, size_t len){
+mystring::mystring (const mystring& mstr, size_t pos, size_t len)throw(string){
     if ((pos+len-1)<mstr.mylen){
         mylen = len;
     }else{
 //        mylen = mstr.mylen - pos;
-        throw "invalid mystring position";
+        throw string("invalid mystring position");
     }
     mydata = new char[mylen+1];
     for(size_t i = 0; i < mylen; i++){
@@ -124,7 +123,7 @@ mystring& mystring::operator+=(const mystring& mstr){
 }
 
 //重载'=='实现
-inline bool mystring::operator==(const mystring& mstr) const{
+bool mystring::operator==(const mystring& mstr) const{
     if (mylen != mstr.mylen){
         return false;
     }
@@ -132,7 +131,7 @@ inline bool mystring::operator==(const mystring& mstr) const{
 }
 
 //重载'!='实现
-inline bool mystring::operator!=(const mystring& mstr) const{
+bool mystring::operator!=(const mystring& mstr) const{
     if (mylen != mstr.mylen){
         return true;
     }
@@ -140,7 +139,7 @@ inline bool mystring::operator!=(const mystring& mstr) const{
 }
 
 //重载'< '实现
-inline bool mystring::operator<(const mystring& mstr) const{
+bool mystring::operator<(const mystring& mstr) const{
     if(this->mylen<mstr.mylen){
         return true;
     }
@@ -148,7 +147,7 @@ inline bool mystring::operator<(const mystring& mstr) const{
 }
 
 //重载'> '实现
-inline bool mystring::operator>(const mystring& mstr) const{
+bool mystring::operator>(const mystring& mstr) const{
     if(this->mylen>mstr.mylen){
         return true;
     }
@@ -156,7 +155,7 @@ inline bool mystring::operator>(const mystring& mstr) const{
 }
 
 //重载'<='实现
-inline bool mystring::operator<=(const mystring& mstr) const{
+bool mystring::operator<=(const mystring& mstr) const{
     if(this->mylen<=mstr.mylen){
         return true;
     }
@@ -164,7 +163,7 @@ inline bool mystring::operator<=(const mystring& mstr) const{
 }
 
 //重载'>='实现
-inline bool mystring::operator>=(const mystring& mstr) const{
+bool mystring::operator>=(const mystring& mstr) const{
     if(this->mylen>=mstr.mylen){
         return true;
     }
@@ -172,20 +171,20 @@ inline bool mystring::operator>=(const mystring& mstr) const{
 }
 
 //重载'[]'实现
-char& mystring::operator[](size_t n){
+char& mystring::operator[](size_t n)throw(string){
     if (n >= mylen){
 //        return mydata[mylen-1];
-        throw "invalid mystring position";
+        throw string("invalid mystring position");
     }else{
         return mydata[n];
     }
 }
 
 //myinsert实现
-mystring& mystring::myinsert(size_t pos, const char* s){
+mystring& mystring::myinsert(size_t pos, const char* s)throw(string){
     if(pos > mylen){
 //        pos = mylen;
-        throw "invalid string position";
+        throw string("invalid string position");
     }
     char *p = new char[mylen + strlen(s) + 1];
     for (size_t i=0; i < mylen+strlen(s); i++){
@@ -270,7 +269,7 @@ void mystring::myswap(mystring& mstr){
 }
 
 //myupper实现
-mystring& mystring::myupper(mystring& mstr){
+mystring& mystring::myupper(mystring& mstr)throw(string){
     char* p = new char[strlen(mstr.mydata)];
     strcpy(p, mstr.mydata);
     for(size_t i=0; i<mstr.mylen; i++){
@@ -278,7 +277,7 @@ mystring& mystring::myupper(mystring& mstr){
             p[i]-=32;
         }
         else{
-            throw "invalid mystring value";
+            throw string("invalid mystring value");
         }
     }
     delete [] mydata;
@@ -286,20 +285,21 @@ mystring& mystring::myupper(mystring& mstr){
     return *this;
 }
 
-mystring& mystring::myupper(mystring& mstr, size_t pos){
-    char* p = new char[strlen(mstr.mydata)];
+mystring& mystring::myupper(mystring& mstr, size_t pos)throw(string){
+    char* p = new char[strlen(mstr.mydata)+1];
     strcpy(p, mstr.mydata);
     if(pos<mstr.mylen){
         if(p[pos]>='a'&&p[pos]<='z'){
             p[pos]-=32;
         }
         else{
-            throw "invalid mystring value";
+            throw string("invalid mystring value");
         }
     }else{
-        throw "invalid mystring position";
+        throw string("invalid mystring position");
     }
     delete [] mydata;
     mydata = p;
+    mydata[mstr.mylen] = '\0';
     return *this;
 }
